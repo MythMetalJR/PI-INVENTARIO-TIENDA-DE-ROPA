@@ -1,13 +1,33 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.inventariostorepi.empleado;
 
-/**
- *
- * @author Usuario
- */
-public class Empleado {
+import com.mycompany.inventariostorepi.usuario.Usuario;
+
+
+public class Empleado extends Usuario {
+    
+    private double idEmpleado;
+
+    public Empleado(double idEmpleado, String nombre, String email, String contraseña, String rol, boolean SesionActiva) {
+        super(nombre, email, contraseña, rol, SesionActiva);
+        this.idEmpleado = idEmpleado;
+    }
+
+    public double getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(double idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+
+    @Override
+    public String toString() {
+        return "Empleado{" + "idEmpleado=" + idEmpleado + '}';
+    }
+
+    
+    
+    
     
 }
