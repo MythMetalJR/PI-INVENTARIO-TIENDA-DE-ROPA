@@ -17,10 +17,10 @@ public class InventarioStorePI {
     public static void main(String[] args) {
         
         IEmpleados objEmpleado = new Empleados(2);
-        Empleado empleadoUno = new Empleado(3, "Alexis", "alexisyasacama@gmail.com", "Lalo15", "Cajero", true);
-        Empleado empleadoDos = new Empleado(4, "Ander", "anderayovi@gmail.com", "util2015", "Gerente", true);
+        Empleado empleadoUno = new Empleado( 3, "Alexis", "alexisyasacama@gmail.com","23456", "Cajero", true);
+        Empleado empleadoDos = new Empleado(4, "Ander", "anderayovi@gmail.com", "23456", "Gerente", true);
         
-    objEmpleado.IniciarSesion("alexisyasacama@gmail.com", "Lalo15");
-    objEmpleado.CerrarSecion();
+    objEmpleado.iniciarSesion("alexisyasacama@gmail.com", "23456");
+    objEmpleado.cerrarSesion();
     }
 }
