@@ -6,18 +6,18 @@ import com.mycompany.inventariostorepi.usuario.Usuario;
 
 public class Empleado extends Usuario {
     
-    private double idEmpleado;
+    private int idEmpleado;
 
-    public Empleado(double idEmpleado, String nombre, String email, String contraseña, String rol, boolean SesionActiva) {
+    public Empleado(int idEmpleado, String nombre, String email, String contraseña, String rol, boolean SesionActiva) {
         super(nombre, email, contraseña, rol, SesionActiva);
         this.idEmpleado = idEmpleado;
     }
 
-    public double getIdEmpleado() {
+    public int getIdEmpleado() {
         return idEmpleado;
     }
 
-    public void setIdEmpleado(double idEmpleado) {
+    public void setIdEmpleado(int idEmpleado) {
         this.idEmpleado = idEmpleado;
     }
 

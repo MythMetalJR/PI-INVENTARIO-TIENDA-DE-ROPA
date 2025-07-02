@@ -6,15 +6,15 @@ import com.mycompany.inventariostorepi.empleado.Empleado;
 public class Inventario {
     private TipoProducto tipoProducto; 
     private String marca; 
-    private double codigoProducto;
+    private int codigoProducto;
     private int talla; 
     private String modelo; 
     private String color; 
     private String tipoTela;
     private double precio; 
-    private double cantidad; 
+    private int cantidad; 
 
-    public Inventario(TipoProducto tipoProducto, String marca, double codigoProducto, int talla, String modelo, String color, String tipoTela, double precio, double cantidad) {
+    public Inventario(TipoProducto tipoProducto, String marca, int codigoProducto, int talla, String modelo, String color, String tipoTela, double precio, int cantidad) {
         this.tipoProducto = tipoProducto;
         this.marca = marca;
         this.codigoProducto = codigoProducto;
@@ -42,11 +42,11 @@ public class Inventario {
         this.marca = marca;
     }
 
-    public double getCodigoProducto() {
+    public int getCodigoProducto() {
         return codigoProducto;
     }
 
-    public void setCodigoProducto(double codigoProducto) {
+    public void setCodigoProducto(int codigoProducto) {
         this.codigoProducto = codigoProducto;
     }
 
@@ -90,11 +90,11 @@ public class Inventario {
         this.precio = precio;
     }
 
-    public double getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(double cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
     

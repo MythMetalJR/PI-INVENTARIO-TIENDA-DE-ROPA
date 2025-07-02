@@ -38,7 +38,7 @@ public class Inventarios implements IInventarios {
         }
     }
 
-    public void buscarProductoCodigo(double buscarCodigo) {
+    public void buscarProductoCodigo(int buscarCodigo) {
         boolean encontrar = false;
         for (int i = 0; i < totalInventarios; i++) {
             if (inventarios[i].getCodigoProducto() == buscarCodigo) {
@@ -62,20 +62,17 @@ public class Inventarios implements IInventarios {
         inventarios [i]= inventario;
         return true; 
     }
-    public void calcularInventarioTotal (){
-        System.out.println(" ");
-        
-        for (int i = 0; i < totalInventarios; i++) {
-            double suma =  +inventarios[i].getCantidad();
-            System.out.println("Cantidad Total de Productos: "+ suma);
-            System.out.println("Total Precios:"+ inventarios[i].getPrecio() + inventarios[i].getPrecio()  );
-        }
-        
-    } 
+    public void calcularInventarioTotal() {
+    int sumaCantidad = 0;
+    double sumaPrecio = 0.0;
 
-    @Override
-    public String toString() {
-        return "Inventarios{" + "inventarios=" + inventarios + ", totalInventarios=" + totalInventarios + '}';
+    for (int i = 0; i < totalInventarios; i++) {
+        sumaCantidad += inventarios[i].getCantidad();
+        sumaPrecio += inventarios[i].getCantidad() * inventarios[i].getPrecio();
     }
+
+    System.out.println("Cantidad Total de Productos: " + sumaCantidad);
+    System.out.println("Total Dinero del Inventario: $" + sumaPrecio);
+}
 
 }
