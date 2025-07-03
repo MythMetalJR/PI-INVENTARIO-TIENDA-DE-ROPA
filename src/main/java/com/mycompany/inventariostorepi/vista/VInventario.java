@@ -13,6 +13,7 @@ import com.mycompany.inventariostorepi.controlador.ControladorInventario;
 public class VInventario extends javax.swing.JFrame {
 
     private ControladorInventario controladorInventario;
+
     public VInventario() {
         initComponents();
         controladorInventario = new ControladorInventario(this);
@@ -41,11 +42,10 @@ public class VInventario extends javax.swing.JFrame {
         btmGuardar = new javax.swing.JButton();
         btmIniciarSesion = new javax.swing.JButton();
         btmAgregarArticulo = new javax.swing.JButton();
-        btmEditarArticulo = new javax.swing.JButton();
+        btmBuscarArticulo = new javax.swing.JButton();
         txtBuscar = new javax.swing.JTextField();
         txtColor = new javax.swing.JTextField();
         lblCodigo = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         lblPrecio = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
 
@@ -76,6 +76,11 @@ public class VInventario extends javax.swing.JFrame {
         lblMarca.setText("Marca:");
 
         txtNombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
 
         lblColor.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lblColor.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,18 +96,37 @@ public class VInventario extends javax.swing.JFrame {
 
         btmGuardar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         btmGuardar.setText("GUARDAR");
+        btmGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btmGuardarActionPerformed(evt);
+            }
+        });
 
         btmIniciarSesion.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         btmIniciarSesion.setText("Iniciar Sesion");
 
         btmAgregarArticulo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         btmAgregarArticulo.setText("Cargar Articulos");
+        btmAgregarArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btmAgregarArticuloActionPerformed(evt);
+            }
+        });
 
-        btmEditarArticulo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btmEditarArticulo.setText("Editar Articulos");
+        btmBuscarArticulo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        btmBuscarArticulo.setText("Buscar Articulos");
+        btmBuscarArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btmBuscarArticuloActionPerformed(evt);
+            }
+        });
 
         txtBuscar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txtBuscar.setText("Buscar");
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarActionPerformed(evt);
+            }
+        });
 
         txtColor.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txtColor.addActionListener(new java.awt.event.ActionListener() {
@@ -113,9 +137,6 @@ public class VInventario extends javax.swing.JFrame {
 
         lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
         lblCodigo.setText("Codigo:");
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/inventariostorepi/vista/traje1.1.png"))); // NOI18N
-        jLabel8.setPreferredSize(new java.awt.Dimension(159, 187));
 
         lblPrecio.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lblPrecio.setForeground(new java.awt.Color(255, 255, 255));
@@ -133,54 +154,46 @@ public class VInventario extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, Short.MAX_VALUE)
+                .addComponent(btmGuardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btmEditarArticulo)
+                        .addComponent(txtCodigo))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btmAgregarArticulo)
-                        .addGap(18, 18, 18)
-                        .addComponent(btmIniciarSesion)
-                        .addGap(19, 19, 19))
+                        .addComponent(txtColor))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(btmGuardar)
-                                .addGap(114, 114, 114))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblCantidad)
+                                .addComponent(lblTalla, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblNombre))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCodigo))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtColor))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblCantidad)
-                                        .addComponent(lblTalla, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lblNombre))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtCantidad)
-                                    .addComponent(txtTalla)
-                                    .addComponent(txtNombre)
-                                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtPrecio)))
-                        .addGap(48, 48, 48))))
+                            .addComponent(txtCantidad)
+                            .addComponent(txtTalla)
+                            .addComponent(txtNombre)
+                            .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtPrecio)))
+                .addGap(48, 48, 48))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btmBuscarArticulo)
+                .addGap(18, 18, 18)
+                .addComponent(btmAgregarArticulo)
+                .addGap(18, 18, 18)
+                .addComponent(btmIniciarSesion)
+                .addGap(19, 19, 19))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,39 +202,36 @@ public class VInventario extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btmIniciarSesion)
                     .addComponent(btmAgregarArticulo)
-                    .addComponent(btmEditarArticulo)
+                    .addComponent(btmBuscarArticulo)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNombre))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblTalla)
-                            .addComponent(txtTalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCantidad))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblMarca)
-                            .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCodigo))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblColor))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPrecio))))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombre))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTalla)
+                    .addComponent(txtTalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCantidad))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMarca)
+                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCodigo))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblColor))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPrecio))
                 .addGap(43, 43, 43)
                 .addComponent(btmGuardar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -243,34 +253,45 @@ public class VInventario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public String getNombre(){
+    public String getNombre() {
         return txtNombre.getText();
     }
-    
-    public String getTalla(){
+    public void setNombre(String nombre) {
+        txtNombre.setText(nombre);
+    }
+    public String getTalla() {
         return txtTalla.getText();
     }
-    
-    public String getCantidad(){
+
+    public String getCantidad() {
         return txtCantidad.getText();
     }
-    
-    public String getMarca(){
+
+    public String getMarca() {
         return txtMarca.getText();
     }
-    
-    public String getCodigoProducto(){
+
+    public String getCodigoProducto() {
         return txtCodigo.getText();
     }
-    
-    public String getPrecio(){
+     public void setCodigoProducto(String codigoProducto) {
+        txtCodigo.setText(codigoProducto);
+    }
+
+    public String getPrecio() {
         return txtPrecio.getText();
     }
-    
-    public String getColor(){
+
+    public String getColor() {
         return txtColor.getText();
     }
-    
+     public String getBuscar() {
+        return txtBuscar.getText();
+    }
+     public void setBuscar(String buscar) {
+        txtBuscar.setText(buscar);
+    }
+
     private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoActionPerformed
@@ -283,14 +304,46 @@ public class VInventario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrecioActionPerformed
 
+    private void btmGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmGuardarActionPerformed
+        // TODO add your handling code here:
+        controladorInventario.agregarP();
+    }//GEN-LAST:event_btmGuardarActionPerformed
+
+    private void btmBuscarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmBuscarArticuloActionPerformed
+        // TODO add your handling code here:
+        controladorInventario.buscarProducto();
+    }//GEN-LAST:event_btmBuscarArticuloActionPerformed
+
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtBuscarActionPerformed
+
+    private void btmAgregarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmAgregarArticuloActionPerformed
+        // TODO add your handling code here:
+        txtNombre.setText(" ");
+        txtTalla.setText(" ");
+        txtCantidad.setText(" ");
+        txtMarca.setText(" ");
+        txtCodigo.setText(" ");
+        txtColor.setText(" ");
+        txtPrecio.setText(" ");
+        
+    }//GEN-LAST:event_btmAgregarArticuloActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtNombreActionPerformed
     
+
     
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btmAgregarArticulo;
-    private javax.swing.JButton btmEditarArticulo;
+    private javax.swing.JButton btmBuscarArticulo;
     private javax.swing.JButton btmGuardar;
     private javax.swing.JButton btmIniciarSesion;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblCodigo;

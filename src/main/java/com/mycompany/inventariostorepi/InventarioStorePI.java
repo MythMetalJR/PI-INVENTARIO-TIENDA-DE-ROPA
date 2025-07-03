@@ -7,7 +7,7 @@ import com.mycompany.inventariostorepi.empleado.Empleado;
 import com.mycompany.inventariostorepi.empleado.Empleados;
 import com.mycompany.inventariostorepi.empleado.IEmpleados;
 import com.mycompany.inventariostorepi.inventario.IInventarios;
-import com.mycompany.inventariostorepi.inventario.Inventarios;
+import com.mycompany.inventariostorepi.inventario.Inventarios;  
 import com.mycompany.inventariostorepi.inventario.Inventario;
 import com.mycompany.inventariostorepi.vista.VInventario;
 
@@ -22,6 +22,7 @@ public class InventarioStorePI {
         VInventario vistaInventario = new VInventario();
         vistaInventario.setVisible(true);
 
+        /*    
         IEmpleados objEmpleado = new Empleados(2);
         Empleado empleadoUno = new Empleado(3, "Alexis", "alexisyasacama@gmail.com", "23456", "Cajero", true);
         Empleado empleadoDos = new Empleado(4, "Ander", "anderayovi@gmail.com", "23456", "Gerente", true);
@@ -49,6 +50,6 @@ public class InventarioStorePI {
         objInventario.imprimirProductos();
         
         objInventario.calcularInventarioTotal();
-        
+        */
     }
 }
