@@ -4,34 +4,47 @@ package com.mycompany.inventariostorepi.inventario;
 import com.mycompany.inventariostorepi.empleado.Empleado;
 
 public class Inventario {
-    private TipoProducto tipoProducto; 
+    
+    private String Nombre;
+    private int talla;
+    private int cantidad;
     private String marca; 
     private int codigoProducto;
-    private int talla; 
-    private String modelo; 
-    private String color; 
-    private String tipoTela;
     private double precio; 
-    private int cantidad; 
+    private String color; 
 
-    public Inventario(TipoProducto tipoProducto, String marca, int codigoProducto, int talla, String modelo, String color, String tipoTela, double precio, int cantidad) {
-        this.tipoProducto = tipoProducto;
+    public Inventario(String Nombre, int talla, int cantidad, String marca, int codigoProducto, double precio, String color) {
+        this.Nombre = Nombre;
+        this.talla = talla;
+        this.cantidad = cantidad;
         this.marca = marca;
         this.codigoProducto = codigoProducto;
-        this.talla = talla;
-        this.modelo = modelo;
-        this.color = color;
-        this.tipoTela = tipoTela;
         this.precio = precio;
+        this.color = color;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    public int getTalla() {
+        return talla;
+    }
+
+    public void setTalla(int talla) {
+        this.talla = talla;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
-    }
-
-    public TipoProducto getTipoProducto() {
-        return tipoProducto;
-    }
-
-    public void setTipoProducto(TipoProducto tipoProducto) {
-        this.tipoProducto = tipoProducto;
     }
 
     public String getMarca() {
@@ -50,20 +63,12 @@ public class Inventario {
         this.codigoProducto = codigoProducto;
     }
 
-    public int getTalla() {
-        return talla;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setTalla(int talla) {
-        this.talla = talla;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
     public String getColor() {
@@ -74,32 +79,9 @@ public class Inventario {
         this.color = color;
     }
 
-    public String getTipoTela() {
-        return tipoTela;
+    @Override
+    public String toString() {
+        return "Inventario{" + "Nombre=" + Nombre + ", talla=" + talla + ", cantidad=" + cantidad + ", marca=" + marca + ", codigoProducto=" + codigoProducto + ", precio=" + precio + ", color=" + color + '}';
     }
-
-    public void setTipoTela(String tipoTela) {
-        this.tipoTela = tipoTela;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-    
-    
-    
-    
-    
+       
 }

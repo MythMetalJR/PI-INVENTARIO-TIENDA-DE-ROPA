@@ -5,6 +5,10 @@ public class Inventarios implements IInventarios {
     private Inventario[] inventarios;
     private int totalInventarios;
 
+    public Inventarios() {
+    }
+
+    
     public Inventarios(int dimension) {
         inventarios = new Inventario[dimension];
         totalInventarios = 0;
@@ -24,13 +28,10 @@ public class Inventarios implements IInventarios {
     public void imprimirProductos() {
         for (int i = 0; i < totalInventarios; i++) {
             System.out.println("Producto |" + (i + 1) + "|");
-            System.out.println("Tipo Producto: " + inventarios[i].getTipoProducto());
             System.out.println("Marca: " + inventarios[i].getMarca());
             System.out.println("Codigo: " + inventarios[i].getCodigoProducto());
-            System.out.println("Talla: " + inventarios[i].getTalla());
-            System.out.println("Modelo: " + inventarios[i].getModelo());
-            System.out.println("Color: " + inventarios[i].getColor());
-            System.out.println("Tipo Tela: " + inventarios[i].getTipoTela());
+            System.out.println("Talla: " + inventarios[i].getTalla());            
+            System.out.println("Color: " + inventarios[i].getColor());            
             System.out.println("Cantidad: " + inventarios[i].getCantidad());
             System.out.println("Precio: " + inventarios[i].getPrecio());
             System.out.println(" ");
@@ -42,7 +43,7 @@ public class Inventarios implements IInventarios {
         boolean encontrar = false;
         for (int i = 0; i < totalInventarios; i++) {
             if (inventarios[i].getCodigoProducto() == buscarCodigo) {
-                System.out.println("Su producto es: " + inventarios[i].getTipoProducto());
+                System.out.println("Su producto es: " + inventarios[i].getNombre());
                 System.out.println("Cantidad: " + inventarios[i].getCantidad());
                 System.out.println("Precio: " + inventarios[i].getPrecio());
                 encontrar = true;
